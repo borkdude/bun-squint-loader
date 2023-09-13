@@ -1,18 +1,16 @@
 import { plugin } from "bun";
+import "squint-cljs"; // somehow I needed to pre-require this;
 
 plugin({
   name: "squint loader",
   async setup(build) {
-    const { compileString } = await import("squint-cljs");
+    let { compileString } = await import("squint-cljs");
     const { readFileSync } = await import("fs");
-
     // when a .cljs file is imported...
     build.onLoad({ filter: /\.cljs$/ }, ({ path }) => {
-      console.log('path', path);
-      // read and compile it with the Svelte compiler
+      // read and compile it with squint
       const file = readFileSync(path, "utf8");
       const contents = compileString(file);
-      console.log(contents);
       // and return the compiled source code as "js"
       return {
         contents,
@@ -21,4 +19,3 @@ plugin({
     });
   },
 });
-

@@ -1,1 +1,1 @@
-preload = ["./squintPlugin.ts"]
+preload = ["./squintPlugin.js"]
