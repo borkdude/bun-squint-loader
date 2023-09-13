@@ -2,7 +2,18 @@
 
 This is a demo of a loader for [bun](https://bun.sh/) which invokes the [squint-cljs](https://github.com/squint-cljs/squint) compiler.
 
-Run `bun index.js`. The output will be:
+Run `bun index.js`:
+
+``` javascript
+import { the_number } from "./calc.cljs";
+console.log('hello, (+ 1 2 3) => ', the_number );
+```
+
+``` shell
+$ bun index.js
+```
+
+The output will be:
 
 ```
 hello, (+ 1 2 3) => 6
