@@ -25,3 +25,6 @@ The number `6` is calculated from a `.cljs` file:
 $ cat calc.cljs
 (def the-number (+ 1 2 3))
 ```
+
+To build/bundle/minify, run `bun build.js`.
+This will yield an `index.js` file in `dist` which is smaller than 100 bytes!

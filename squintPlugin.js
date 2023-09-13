@@ -1,7 +1,7 @@
 import { plugin } from "bun";
 import "squint-cljs"; // somehow I needed to pre-require this;
 
-plugin({
+export const squintLoader = {
   name: "squint loader",
   async setup(build) {
     let { compileString } = await import("squint-cljs");
@@ -18,4 +18,6 @@ plugin({
       };
     });
   },
-});
+};
+
+plugin(squintLoader);
